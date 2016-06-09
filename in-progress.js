@@ -122,7 +122,7 @@ var ProgressBox = React.createClass({
   render:function() {
     return (
       <div className = "progressBox">
-        <h1>Sites in Progress</h1>
+        <h1>Tasks in Progress</h1>
         <SiteList data = {this.state.data} onSiteDelete = {this.handleSiteDelete} onToComplete = {this.handleToCompleted}/>
       </div>
     );

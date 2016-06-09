@@ -81,7 +81,7 @@ var FinishedBox = React.createClass({
   render:function() {
     return (
       <div className = "finishedBox">
-        <h1>Finished Sites</h1>
+        <h1>Finished</h1>
         <SiteList data = {this.state.data} onSiteDelete = {this.handleSiteDelete} />
       </div>
     );
@@ -125,7 +125,7 @@ var Site = React.createClass({
       <span> Date completed: {this.props.dateCompleted} </span>
       <span title = {this.props.description}> {this.props.description}</span>
       <br />
-      <p> <a href = {this.props.templateURL} target="_blank"> Link to template</a></p>
+      <p> <a href = {this.props.templateURL} target="_blank"> Link to Template</a></p>
 
 
         <form className = "deleteSite" onSubmit = {this.deleteSite}>

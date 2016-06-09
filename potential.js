@@ -124,7 +124,7 @@ var WebsiteBox = React.createClass({
   render:function() {
     return (
       <div className = "websiteBox">
-        <h1>Potential Sites</h1>
+        <h1>To Do</h1>
         <SiteList data = {this.state.data} onSiteDelete = {this.handleSiteDelete} onToProgress = {this.handleToProgress} />
         <SiteForm onSiteSubmit = {this.handleSiteSubmit}/>
       </div>
@@ -183,21 +183,21 @@ var SiteForm = React.createClass({
       <form className = "siteForm" onSubmit = {this.handleSubmit}>
         <input
           type = "text"
-          placeholder = "Website name"
+          placeholder = "Task name"
           value = {this.state.name}
           onChange = {this.handleNameChange}
         />
         <br />
         <input
           type = "text"
-          placeholder = "Website URL"
+          placeholder = "Task URL"
           value = {this.state.url}
           onChange = {this.handleURLChange}
         />
         <br />
         <input
           type = "text"
-          placeholder = "Website Description"
+          placeholder = "Task Description"
           value = {this.state.description}
           onChange = {this.handleDescriptionChange}
         />
