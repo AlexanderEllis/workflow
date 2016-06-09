@@ -1,0 +1,186 @@
+body {
+  background-color: #F2F2F2;
+  margin: 0;
+  padding: 0; }
+
+#container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  font-family: "Open Sans";
+  width: 90%;
+  padding: 0;
+  margin: 0 auto; }
+
+#title {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  width: 100%;
+  position: relative;
+  font-size: 22px;
+  font-weight: 400;
+  font-family: "Open Sans";
+  height: 60px;
+  background-color: white;
+  box-shadow: 1px 2px 4px 0px rgba(150, 150, 150, 0.1), -1px 2px 4px 0px rgba(150, 150, 150, 0.1); }
+  #title span {
+    margin-left: 44px; }
+
+#potential-sites {
+  width: 420px;
+  border-radius: 4px; }
+
+#sites-in-progress {
+  width: 420px;
+  border-radius: 4px; }
+
+#finished-sites {
+  width: 420px;
+  border-radius: 4px; }
+
+.site, .siteForm {
+  position: relative;
+  width: 400px;
+  height: 130px;
+  background-color: white;
+  margin-bottom: 20px;
+  padding: 10px;
+  box-shadow: 0px 2px 4px 0px rgba(150, 150, 150, 0.1), 0px 2px 4px 0px rgba(150, 150, 150, 0.1);
+  transition: padding .1s, margin .1s, font-size 0.1s;
+  border-radius: 4px; }
+  .site:hover, .siteForm:hover {
+    box-shadow: 2px 5px 4px 0px rgba(150, 150, 150, 0.1), -2px 5px 4px 0px rgba(150, 150, 150, 0.1); }
+
+.site h2, .siteForm h2 {
+  -webkit-margin-before: 0px;
+  -webkit-margin-after: 0px;
+  font-weight: 400;
+  font-size: 22px;
+  color: black; }
+
+.site h2 a:link, .siteForm h2 a:link {
+  text-decoration: none;
+  color: black; }
+.site h2 a:visited, .siteForm h2 a:visited {
+  text-decoration: none;
+  color: black; }
+.site h2 a:hover, .siteForm h2 a:hover {
+  text-decoration: none;
+  cursor: pointer;
+  color: #CCC; }
+.site h2 a:active, .siteForm h2 a:active {
+  text-decoration: none;
+  color: #333; }
+
+.site p, .siteForm p {
+  -webkit-margin-before: 0px;
+  -webkit-margin-after: 0px;
+  font-size: 15px; }
+  .site p a:link, .siteForm p a:link {
+    text-decoration: none;
+    color: black; }
+  .site p a:visited, .siteForm p a:visited {
+    text-decoration: none;
+    color: black; }
+  .site p a:hover, .siteForm p a:hover {
+    text-decoration: none;
+    cursor: pointer;
+    color: #CCC; }
+  .site p a:active, .siteForm p a:active {
+    text-decoration: none;
+    color: #333; }
+
+.site span, .siteForm span {
+  -webkit-margin-before: 0px;
+  -webkit-margin-after: 0px;
+  font-size: 15px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 300px;
+  display: inline-block; }
+
+.deleteSite {
+  position: relative;
+  float: right;
+  clear: both; }
+
+.toProgress {
+  position: relative;
+  float: right;
+  clear: both; }
+
+.toCompleted {
+  position: relative;
+  float: right;
+  clear: both; }
+
+h1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 400px;
+  height: 30px;
+  border-radius: 4px;
+  background-color: white;
+  margin-bottom: 20px;
+  padding: 10px;
+  box-shadow: 0px 2px 4px 0px rgba(150, 150, 150, 0.1), 0px 2px 4px 0px rgba(150, 150, 150, 0.1);
+  color: black;
+  text-align: center;
+  font-weight: 400;
+  font-size: 22px; }
+
+input[type="text"] {
+  font-family: "Open Sans";
+  background-color: transparent;
+  border: none;
+  color: #333333;
+  width: 50%;
+  font-size: 14px;
+  border: 1px solid transparent; }
+  input[type="text"]::-webkit-input-placeholder {
+    color: #999999; }
+  input[type="text"]::-moz-placeholder {
+    color: #999999; }
+  input[type="text"]:-moz-placeholder {
+    color: #999999; }
+  input[type="text"]:focus {
+    border-bottom: 1px solid #999999;
+    outline: none; }
+
+input[type="submit"] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  float: right;
+  clear: both;
+  height: 26px;
+  width: 88px;
+  font-size: 13px;
+  border-radius: 2px;
+  outline: none;
+  border: 1px solid #CCCCCC;
+  background-color: #70FF69;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), inset 0 -1px 4px rgba(151, 159, 175, 0.2);
+  color: #333;
+  margin: 3px;
+  transition: background-color 1s, box-shadow .05s, height .1s, width .1s, margin .1s; }
+  input[type="submit"]:hover {
+    background-color: #0fff03; }
+  input[type="submit"]:active {
+    transition: background-color .1s;
+    outline: none;
+    background-color: #0acf00; }
+
+input[value="Delete"] {
+  clear: both;
+  background-color: #FF5757; }
+  input[value="Delete"]:hover {
+    background-color: #f00000; }
+  input[value="Delete"]:active {
+    background-color: #bd0000; }
+
+/*# sourceMappingURL=stylesheet.css.map */
