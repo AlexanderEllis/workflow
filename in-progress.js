@@ -1,10 +1,10 @@
 
-var canUpdate = true;
+//var canUpdate = true;
 
 
 var ProgressBox = React.createClass({
 
-  loadSitesFromServer: function() {
+  /*loadSitesFromServer: function() {
     if (!canUpdate) {//Don't start refreshing if we can't update.
       return;
     };
@@ -27,7 +27,7 @@ var ProgressBox = React.createClass({
         console.error(this.props.url, status, err.toString());
       }.bind(this)
     });
-  },
+  },*/
 
   deleteSite: function(array, id) {
     array.forEach(function(result, index) {
@@ -38,11 +38,11 @@ var ProgressBox = React.createClass({
   },
 
   handleSiteDelete: function(id) {
-    canUpdate = false;
+    //canUpdate = false;
     let oldData = this.state.data;
     this.deleteSite(this.state.data, id); //Delete function right above
     var newData = this.state.data; //We now have a local copy of the data that doesn't include the site.
-    var sentData = {
+    /*var sentData = {
       id: id,
       status: "progress" //We need to send status so that the mongodb can return the appropriate ones afterwards
     };
@@ -55,7 +55,7 @@ var ProgressBox = React.createClass({
       success: function() {
         canUpdate = true;
       }
-    });
+    });*/
   },
 
   findSite: function(array, id) {
@@ -70,7 +70,7 @@ var ProgressBox = React.createClass({
   },
 
   handleToCompleted: function(id) {
-    canUpdate = false;
+    //canUpdate = false;
     let oldData = this.state.data;
     var changedSite = this.findSite(oldData, id);
     this.deleteSite(this.state.data, id);
@@ -83,7 +83,7 @@ var ProgressBox = React.createClass({
     var myEvent = new CustomEvent("toCompleted", { detail: changedSite }); //defines data sent with event as site we care about
     window.dispatchEvent(myEvent); //"Hello finished.js!  Here's a present for you!"
     this.setState({data: newData}); //sets local before updating from mongo
-    var sentData = {
+    /*var sentData = {
       id: id,
       changeTo: "completed",
       templateURL: templateURL,
@@ -97,7 +97,7 @@ var ProgressBox = React.createClass({
       success: function() {
         canUpdate = true;
     }
-    });
+  });*/
   },
 
   getInitialState: function() {
@@ -105,18 +105,18 @@ var ProgressBox = React.createClass({
   },
 
   handleNewSite: function(evt) {
-    canUpdate = false;
+    //canUpdate = false;
     var newSite = evt.detail; // grabs the site from the event information from potential.js
     var oldData = this.state.data;
     oldData.push(newSite); //adds in the new site to the local data array
     this.setState({data: oldData}); //sets local state before updating from db
-    setTimeout(function() {canUpdate = true;}, 2000); //When getting new sites from local, can't update from db for two seconds to ensure gap
+    //setTimeout(function() {canUpdate = true;}, 2000); //When getting new sites from local, can't update from db for two seconds to ensure gap
   },
 
   componentDidMount: function() {
-    this.loadSitesFromServer();
+    //this.loadSitesFromServer();
     window.addEventListener("toProgress", this.handleNewSite); //Listening for new sites
-    setInterval(this.loadSitesFromServer, this.props.pollInterval);
+    //setInterval(this.loadSitesFromServer, this.props.pollInterval);
   },
 
   render:function() {
@@ -189,6 +189,6 @@ var Site = React.createClass({
 });
 
 ReactDOM.render(
-  <ProgressBox url="/api/progress" pollInterval={2000} />,
+  <ProgressBox /*url="/api/progress" pollInterval={2000}*/ />,
   document.getElementById('sites-in-progress')
 );

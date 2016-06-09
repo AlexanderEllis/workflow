@@ -1,23 +1,5 @@
 # Workflow app
 
-Basic at the moment.
+This is a basic workflow app created with React, Node, Express, and MongoDB.  
 
-### Node
-
-### Setup
-```sh
-git clone git@bitbucket.org:EllisAlexander/workflow-app.git
-```
-
-### Run locally
-```sh
-npm install
-node server.js
-```
-
-
-### Connect w/ Heroku
-1. Install Heroku toolbelt
-```sh
-heroku git:remote --app protected-woodland-33678
-```
+This is an example version in which all of the data is stored locally.

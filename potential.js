@@ -1,8 +1,8 @@
 
-var canUpdate = true;  //Lord and savior.  This lets us define when incoming updates are OK.
+//var canUpdate = true;  //Lord and savior.  This lets us define when incoming updates are OK.
 
 var WebsiteBox = React.createClass({
-  loadSitesFromServer: function() {
+  /*loadSitesFromServer: function() {
     if (!canUpdate) { //Don't start refreshing if we can't update.
       return;
     }
@@ -25,10 +25,10 @@ var WebsiteBox = React.createClass({
         console.error(this.props.url, status, err.toString());
       }.bind(this)
     });
-  },
+  },*/
 
   handleSiteSubmit: function(site) {
-    canUpdate = false;
+    //canUpdate = false;
     var sites = this.state.data; //Grabs data from submit form.  "this" is really the form, since the function is bubbled up from the form
     site.id = Date.now();
     var dateNow = new Date(); //To compute legible date added
@@ -37,7 +37,7 @@ var WebsiteBox = React.createClass({
     site.templateURL = ""; //no url because it's not completed yet
     var newSite = sites.concat([site]); //This creates client-side array that is new list of sites
     this.setState({data: newSite}); //This makes it look like we instantly added site!  Really the server is working in the background, but don't tell anyone
-    $.ajax({
+    /*$.ajax({
       url: '/api/new',
       dataType: 'json',
       type: 'POST',
@@ -45,7 +45,7 @@ var WebsiteBox = React.createClass({
       success: function() {
         canUpdate = true;
       },
-    });
+    });*/
   },
 
   deleteSite: function(array, id) {
@@ -57,11 +57,11 @@ var WebsiteBox = React.createClass({
   },
 
   handleSiteDelete: function(id) {
-    canUpdate = false;
+    //canUpdate = false;
     let oldData = this.state.data;
     this.deleteSite(this.state.data, id);
     var newData = this.state.data;
-    var sentData = {
+    /*var sentData = {
       id: id,
       status: "potential" //We need to send status so that the mongodb can return the appropriate ones afterwards
     };
@@ -74,7 +74,7 @@ var WebsiteBox = React.createClass({
       success: function() {
         canUpdate = true;
       }
-    });
+    });*/
   },
 
   findSite: function(array, id) {
@@ -89,7 +89,7 @@ var WebsiteBox = React.createClass({
   },
 
   handleToProgress: function(id) {
-    canUpdate = false; //No updates until we're done talking to server
+    //canUpdate = false; //No updates until we're done talking to server
     let oldData = this.state.data;
     var changedSite = this.findSite(oldData, id); //findSite function right above
     var myEvent = new CustomEvent("toProgress", { detail: changedSite });
@@ -97,7 +97,7 @@ var WebsiteBox = React.createClass({
     this.deleteSite(this.state.data, id); //Removes site from local array
     var newData = this.state.data;
     this.setState({data: newData}); //Updates local view
-    var sentData = {
+    /*var sentData = {
       id: id,
       changeTo: "progress"
     };
@@ -109,7 +109,7 @@ var WebsiteBox = React.createClass({
       success: function() {
       canUpdate = true; //OK we're allowing updates now
     }
-    });
+  });*/
   },
 
   getInitialState: function() {
@@ -117,8 +117,8 @@ var WebsiteBox = React.createClass({
   },
 
   componentDidMount: function() {
-    this.loadSitesFromServer();
-    setInterval(this.loadSitesFromServer, this.props.pollInterval); //This refreshes it regularly (every 2 seconds)
+    //this.loadSitesFromServer();
+    //setInterval(this.loadSitesFromServer, this.props.pollInterval); //This refreshes it regularly (every 2 seconds)
   },
 
   render:function() {
@@ -247,6 +247,6 @@ var Site = React.createClass({
 });
 
 ReactDOM.render(
-  <WebsiteBox pollInterval={2000} />,
+  <WebsiteBox /*pollInterval={2000}*/ />,
   document.getElementById('potential-sites')
 );
