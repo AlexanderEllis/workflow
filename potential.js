@@ -171,8 +171,11 @@ var SiteForm = React.createClass({
     var name = this.state.name.trim();
     var url = this.state.url.trim();
     var description = this.state.description.trim();
-    if (!url || !name || !description) {
+    if (!name || !description) {
       return;
+    }
+    if (!url) {
+      url = "#";
     }
     this.props.onSiteSubmit({name: name, url: url, description: description});
     this.setState({name: '', url: '', description: ''});
