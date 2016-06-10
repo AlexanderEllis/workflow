@@ -42,11 +42,11 @@ var ProgressBox = React.createClass({
     let oldData = this.state.data;
     this.deleteSite(this.state.data, id); //Delete function right above
     var newData = this.state.data; //We now have a local copy of the data that doesn't include the site.
+    this.setState({data: newData});
     /*var sentData = {
       id: id,
       status: "progress" //We need to send status so that the mongodb can return the appropriate ones afterwards
     };
-    this.setState({data: newData});
     $.ajax({
       url: '/api/delete',
       dataType: 'json',

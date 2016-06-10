@@ -43,11 +43,12 @@ var FinishedBox = React.createClass({
     let oldData = this.state.data;
     this.deleteSite(this.state.data, id);
     var newData = this.state.data;
+    this.setState({data: newData});
     /*var sentData = {
       id: id,
       status: "completed" //We need to send status so that the mongodb can return the appropriate ones afterwards
     };
-    this.setState({data: newData});
+
     $.ajax({
       url: '/api/delete',
       dataType: 'json',
