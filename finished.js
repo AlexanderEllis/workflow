@@ -125,7 +125,7 @@ var Site = React.createClass({
       <span> Date completed: {this.props.dateCompleted} </span>
       <span title = {this.props.description}> {this.props.description}</span>
       <br />
-      <p> <a href = {this.props.templateURL} target="_blank"> Link to Template</a></p>
+      <p> <a href = {this.props.templateURL} target="_blank"> Link to Task</a></p>
 
 
         <form className = "deleteSite" onSubmit = {this.deleteSite}>

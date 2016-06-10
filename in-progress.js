@@ -75,7 +75,7 @@ var ProgressBox = React.createClass({
     var changedSite = this.findSite(oldData, id);
     this.deleteSite(this.state.data, id);
     var newData = this.state.data;
-    var templateURL = window.prompt("Please enter the URL for the finished template.", "");
+    var templateURL = window.prompt("Please enter the URL for the finished task.", "");
     changedSite.templateURL = templateURL; //Add the url to the local site so we can send to finished.js
     var dateNow = new Date(); //To compute legible date added
     var dateCompleted = (dateNow.getMonth() + 1) + "/" + dateNow.getDate() + "/" + dateNow.getFullYear();
